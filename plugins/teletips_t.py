@@ -30,4 +30,4 @@ DO NOT do more than two (2) countdowns at the same time using the same bot. (Flo
 
 TUTORIAL_TEXT = "💡 Click the **🎥 Video** button to watch how to create this bot for your group."
 
-#Copyright ©️ 2021 TeLe TiPs. All Rights Reserved
+#Copyright ©️ 2021 TeLe TiPs. All Rights Reserved.
