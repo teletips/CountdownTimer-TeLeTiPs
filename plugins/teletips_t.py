@@ -15,17 +15,23 @@ GROUP_TEXT="""
 HELP_TEXT = """
 <u>**Step 1**</u> - **Get Started** 🚀
 > Add your bot to your group.
+
 <u>**Step 2**</u> - **Make Admin** 👮🏻‍♂️
-> Don't forget to make your bot admin of the group. 
+> Don't forget to make your bot admin of the group.
+
 <u>**Step 3**</u> - **Commands** ( /set  &  /stopc )🕹
 > Send the command below in correct format to the group.
 <code>/set seconds "event"</code>
+
 **Example**:
 <code>/set 86400 "TIME LEFT UNTIL NEW YEAR"</code>
+
 > You can send /stopc to stop all countdowns. 
+
 That's all! 🥳
+
 **⚠️WARNING:**
-DO NOT do more than two (2) countdowns at the same time using the same bot. (Floodwait errors)
+DO NOT do more than two (2) countdowns at the same time using the same bot. (Reason: Telegram floodwait)
 """
 
 TUTORIAL_TEXT = "💡 Click the **🎥 Video** button to watch how to create this bot for your group."
