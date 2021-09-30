@@ -141,7 +141,7 @@ async def set_timer(client, message):
             await get_user_input_time.pin()
             if stoptimer: stoptimer = False
             if 0<user_input_time<=10:
-                while user_input_time and not stoptimer:
+                while user_input_time>0 and not stoptimer:
                     s=user_input_time%60
                     Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>"Your **Time** Is Limited, So Don\'t Waste It Living Someone Else\'s Life"</i>\n      - Steve Jobs'.format(user_input_event, s)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
