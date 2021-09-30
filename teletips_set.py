@@ -129,7 +129,7 @@ async def set_timer(client, message):
     global stoptimer
     try:
         if message.chat.id>0:
-            return await message.reply('⛔️ Try this command in a **group**.')
+            return await message.reply('⛔️ Try this command in a **group chat**.')
         elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
             return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')    
         elif len(message.command)<3:
