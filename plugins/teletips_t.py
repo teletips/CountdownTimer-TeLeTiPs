@@ -9,7 +9,7 @@ START_TEXT = 'Heya,\nMy name is **Countdown Timer** ⏰\n\nI can countdown to yo
 
 GROUP_TEXT="""
 👥 <u>**Help & Support Groups**</u>
-> Feel free to report any issues regarding this bot.
+> Feel free to report any issues regarding this service.
 """
 
 HELP_TEXT = """
@@ -21,12 +21,13 @@ HELP_TEXT = """
 
 <u>**Step 3**</u> - **Commands** ( /set  &  /stopc )🕹
 > Send the command below in correct format to the group.
+
 <code>/set seconds "event"</code>
 
 **Example**:
 <code>/set 86400 "TIME LEFT UNTIL NEW YEAR"</code>
 
-> You can send /stopc to stop all countdowns. 
+> You can send <code>/stopc</code> to stop all countdowns. 
 
 That's all! 🥳
 
