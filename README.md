@@ -23,11 +23,12 @@
 ### Works in any group ( /set  &  /stopc )
 ```
 > Send the command below in correct format to the group.
-```
-/set seconds "event"
+
+  /set seconds "event"
 
 Example:
-/set 86400 "TIME LEFT UNTIL NEW YEAR"
+  /set 86400 "TIME LEFT UNTIL NEW YEAR"
+```
 ```
 > You can send /stopc to stop all countdowns.
 ```
