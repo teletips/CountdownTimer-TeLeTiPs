@@ -31,9 +31,9 @@ Example:
 ```
 ```
 > You can send /stopc to stop all countdowns.
-```
-/stopc
 
+/stopc
+```
 <p align="center">
 <img src="https://telegra.ph/file/432ce18d60b1f07294d50.jpg">
 <p>
