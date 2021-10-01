@@ -20,20 +20,19 @@
 3. `BOT_TOKEN` : A Valid Telegram Bot Token, get it from @Botfather
 
 ## Commands
-Works in any group ( /set  &  /stopc )
-
+### Works in any group ( /set  &  /stopc )
+```
 > Send the command below in correct format to the group.
 ```
 /set seconds "event"
-```
-```
+
 Example:
 /set 86400 "TIME LEFT UNTIL NEW YEAR"
 ```
 > You can send /stopc to stop all countdowns.
 ```
 /stopc
-```
+
 <p align="center">
 <img src="https://telegra.ph/file/432ce18d60b1f07294d50.jpg">
 <p>
