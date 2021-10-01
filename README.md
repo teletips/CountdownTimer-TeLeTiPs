@@ -53,7 +53,7 @@ Example:
 
 - Changing the code is NOT ALLOWED!!    
 - You are free to use this code in any of your projects, but you MUST include the following in your README.md (Copy & paste)
-
+- [📞 Contact](https://t.me/tele_gram_tips_bot)
 ```
 ##Credits
 - [Countdown Timer Telegram bot by TeLe TiPs] (https://github.com/teletips/CountdownTimer-TeLeTiPs)
