@@ -59,4 +59,4 @@ Example:
 - [Countdown Timer Telegram bot by TeLe TiPs] (https://github.com/teletips/CountdownTimer-TeLeTiPs)
 ```
 ## Read GNU AFFERO GENERAL PUBLIC LICENSE: 
-<br><img src="https://img.shields.io/github/license/teletips/CountdownTimer-TeLeTiPs?style=for-the-badge" alt="License">
+<br><img src="https://img.shields.io/github.com/teletips/CountdownTimer-TeLeTiPs/blob/main/LICENSE?style=for-the-badge" alt="License">
