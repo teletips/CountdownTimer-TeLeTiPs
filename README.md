@@ -21,6 +21,9 @@
 
 ## Commands
 ### Works in any group ( /set  &  /stopc )
+
+[🎥 Tutorial Video: ](https://www.youtube.com/watch?v=nYSrgdIYdTw)
+
 ```
 > Send the command below in correct format to the group.
 
