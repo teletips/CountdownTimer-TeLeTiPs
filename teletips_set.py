@@ -8,7 +8,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 import os
 import asyncio
-from plugins.teletips_t import *
+from teletips_t import *
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.raw.functions.messages import UpdatePinnedMessage
 
@@ -19,6 +19,8 @@ bot=Client(
     bot_token = os.environ["BOT_TOKEN"]
 )
 
+footer_message = os.environ["FOOTER_MESSAGE"]
+
 stoptimer = False
 
 TELETIPS_MAIN_MENU_BUTTONS = [
@@ -26,9 +28,9 @@ TELETIPS_MAIN_MENU_BUTTONS = [
                 InlineKeyboardButton('❓ HELP', callback_data="HELP_CALLBACK")
             ],
             [
-                InlineKeyboardButton('👥 GROUP', callback_data="GROUP_CALLBACK"),
+                InlineKeyboardButton('👥 SUPPORT', callback_data="GROUP_CALLBACK"),
                 InlineKeyboardButton('📣 CHANNEL', url='https://t.me/teletipsofficialchannel'),
-                InlineKeyboardButton('👨‍💻 CREATOR', url='https://t.me/thakshakar')
+                InlineKeyboardButton('👨‍💻 CREATOR', url='https://t.me/teIetips')
             ],
             [
                 InlineKeyboardButton('➕ CREATE YOUR BOT ➕', callback_data="TUTORIAL_CALLBACK")
@@ -65,10 +67,7 @@ async def callback_query(client: Client, query: CallbackQuery):
     elif query.data=="GROUP_CALLBACK":
         TELETIPS_GROUP_BUTTONS = [
             [
-                InlineKeyboardButton("🇱🇰 Anytime Any Qs", url="https://t.me/AnytimeAnyQs")
-            ],
-            [
-                InlineKeyboardButton("🌎 TeLe TiPs", url="https://t.me/teletipsofficialontopicchat")
+                InlineKeyboardButton("TeLe TiPs Chat [EN]", url="https://t.me/teletipsofficialontopicchat")
             ],
             [
                 InlineKeyboardButton("⬅️ BACK", callback_data="START_CALLBACK"),
@@ -86,7 +85,7 @@ async def callback_query(client: Client, query: CallbackQuery):
     elif query.data=="TUTORIAL_CALLBACK":
         TELETIPS_TUTORIAL_BUTTONS = [
             [
-                InlineKeyboardButton("🎥 Video", url="https://t.me/TeLeTiPsOfficialChannel/462")
+                InlineKeyboardButton("🎥 Video", url="https://youtu.be/nYSrgdIYdTw")
             ],
             [
                 InlineKeyboardButton("⬅️ BACK", callback_data="START_CALLBACK"),
@@ -107,9 +106,9 @@ async def callback_query(client: Client, query: CallbackQuery):
                 InlineKeyboardButton('❓ HELP', callback_data="HELP_CALLBACK")
             ],
             [
-                InlineKeyboardButton('👥 GROUP', callback_data="GROUP_CALLBACK"),
+                InlineKeyboardButton('👥 SUPPORT', callback_data="GROUP_CALLBACK"),
                 InlineKeyboardButton('📣 CHANNEL', url='https://t.me/teletipsofficialchannel'),
-                InlineKeyboardButton('👨‍💻 CREATOR', url='https://t.me/thakshakar')
+                InlineKeyboardButton('👨‍💻 CREATOR', url='https://t.me/teIetips')
             ],
             [
                 InlineKeyboardButton('➕ CREATE YOUR BOT ➕', callback_data="TUTORIAL_CALLBACK")
@@ -130,8 +129,8 @@ async def set_timer(client, message):
     try:
         if message.chat.id>0:
             return await message.reply('⛔️ Try this command in a **group chat**.')
-        elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
-            return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')    
+        elif not (await message.chat.get_members(filter="administrators")):
+            return await message.reply('👮🏻‍♂️ Sorry, **only administrators** can execute this command.')    
         elif len(message.command)<3:
             return await message.reply('❌ **Incorrect format.**\n\n✅ Format should be like,\n<code> /set seconds "event"</code>\n\n**Example**:\n <code>/set 86400 "TIME LEFT UNTIL NEW YEAR"</code>')    
         else:
@@ -143,7 +142,10 @@ async def set_timer(client, message):
             if 0<user_input_time<=10:
                 while user_input_time and not stoptimer:
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>"Your **Time** Is Limited, So Don\'t Waste It Living Someone Else\'s Life"</i>\n      - Steve Jobs'.format(user_input_event, s)
+                    if bool(footer_message) == True:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, s, footer_message)
+                    else:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n'.format(user_input_event, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(1)
                     user_input_time -=1
@@ -151,7 +153,10 @@ async def set_timer(client, message):
             elif 10<user_input_time<60:
                 while user_input_time>0 and not stoptimer:
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>"Your **Time** Is Limited, So Don\'t Waste It Living Someone Else\'s Life"</i>\n      - Steve Jobs'.format(user_input_event, s)
+                    if bool(footer_message) == True:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, s, footer_message)
+                    else:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n'.format(user_input_event, s, footer_message)   
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(3)
                     user_input_time -=3
@@ -160,7 +165,10 @@ async def set_timer(client, message):
                 while user_input_time>0 and not stoptimer:
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**m** : {:02d}**s**\n\n<i>"Your **Time** Is Limited, So Don\'t Waste It Living Someone Else\'s Life"</i>\n      - Steve Jobs'.format(user_input_event, m, s)
+                    if bool(footer_message) == True:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, m, s, footer_message)
+                    else:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n'.format(user_input_event, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(3)
                     user_input_time -=3
@@ -170,7 +178,10 @@ async def set_timer(client, message):
                     h=user_input_time%(3600*24)//3600
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>"Your **Time** Is Limited, So Don\'t Waste It Living Someone Else\'s Life"</i>\n      - Steve Jobs'.format(user_input_event, h, m, s)
+                    if bool(footer_message) == True:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, h, m, s, footer_message)
+                    else:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n'.format(user_input_event, h, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(7)
                     user_input_time -=7
@@ -181,7 +192,10 @@ async def set_timer(client, message):
                     h=user_input_time%(3600*24)//3600
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**d** : {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>"Your **Time** Is Limited, So Don\'t Waste It Living Someone Else\'s Life"</i>\n      - Steve Jobs'.format(user_input_event, d, h, m, s)
+                    if bool(footer_message) == True:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, d, h, m, s, footer_message)
+                    else:
+                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n'.format(user_input_event, d, h, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(9)
                     user_input_time -=9
@@ -196,11 +210,11 @@ async def set_timer(client, message):
 async def stop_timer(Client, message):
     global stoptimer
     try:
-        if (await bot.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
+        if (await message.chat.get_members(filter="administrators")):
             stoptimer = True
             await message.reply('🛑 Countdown stopped.')
         else:
-            await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')
+            await message.reply('👮🏻‍♂️ Sorry, **only administrators** can execute this command.')
     except FloodWait as e:
         await asyncio.sleep(e.x)
 
