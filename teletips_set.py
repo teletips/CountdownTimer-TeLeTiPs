@@ -180,10 +180,7 @@ async def set_timer(client, message):
                     h=user_input_time%(3600*24)//3600
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    try:
-                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, d, h, m, s, footer_message)
-                    except KeyError:
-                        Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n'.format(user_input_event, d, h, m, s, footer_message)
+                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, d, h, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(9)
                     user_input_time -=9
