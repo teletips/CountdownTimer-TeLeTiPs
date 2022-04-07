@@ -129,8 +129,8 @@ async def set_timer(client, message):
     try:
         if message.chat.id>0:
             return await message.reply('⛔️ Try this command in a **group chat**.')
-        elif not (await message.chat.get_members(filter="administrators")):
-            return await message.reply('👮🏻‍♂️ Sorry, **only administrators** can execute this command.')    
+        elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
+            return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')    
         elif len(message.command)<3:
             return await message.reply('❌ **Incorrect format.**\n\n✅ Format should be like,\n<code> /set seconds "event"</code>\n\n**Example**:\n <code>/set 86400 "TIME LEFT UNTIL NEW YEAR"</code>')    
         else:
@@ -195,11 +195,11 @@ async def set_timer(client, message):
 async def stop_timer(Client, message):
     global stoptimer
     try:
-        if (await message.chat.get_members(filter="administrators")):
+        if (await bot.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
             stoptimer = True
             await message.reply('🛑 Countdown stopped.')
         else:
-            await message.reply('👮🏻‍♂️ Sorry, **only administrators** can execute this command.')
+            await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')
     except FloodWait as e:
         await asyncio.sleep(e.x)
 
