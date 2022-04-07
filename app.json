@@ -1,7 +1,7 @@
 {
     "name": "CountdownTimer-TeLeTiPs",
     "description": "Powerful Telegram bot to countdown to your important events in any chat.",
-    "repository": "https://github.com/teletips/CountdownTimer-TeLeTiPs",
+    "repository": "https://github.com/teletipsalltestings/CountdownTimer-TeLeTiPs",
     "logo": "https://telegra.ph/file/73550b9954e83d4a571fc.jpg",
     "keywords": [
         "countdown",
@@ -22,6 +22,11 @@
         },
         "BOT_TOKEN": {
             "description": "Get from Telegram's @BotFather",
+            "required": true
+        },
+        "FOOTER_MESSAGE": {
+            "description": "A simple footer message for the countdown. This can be a short quote or something like that.",
+            "value": "Your Time Is Limited, So Don't Waste It Living Someone Else's Life",
             "required": true
         }
     },
