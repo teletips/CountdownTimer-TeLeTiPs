@@ -25,8 +25,8 @@
             "required": true
         },
         "FOOTER_MESSAGE": {
-            "description": "A simple footer message for the countdown. This can be a short quote or something like that. You can leave this if you don't want to show any footer message.",
-            "required": false
+            "description": "A simple footer message for the countdown. This can be a short quote or something like that.",
+            "required": true
         }
     },
     "formation": {
