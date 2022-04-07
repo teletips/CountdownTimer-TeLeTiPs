@@ -26,7 +26,7 @@
         },
         "FOOTER_MESSAGE": {
             "description": "A simple footer message for the countdown. This can be a short quote or something like that.",
-            "value": "Your Time Is Limited, So Don't Waste It Living Someone Else's Life"
+            "value": "Your Time Is Limited, So Don't Waste It Living Someone Else's Life",
             "required": true
         }
     },
