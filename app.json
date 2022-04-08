@@ -12,14 +12,6 @@
         "Pyrogram bot"
     ],
     "env": {
-        "API_ID": {
-            "description": "Get from my.telegram.org/apps",
-            "required": true
-        },
-        "API_HASH": {
-            "description": "Get from my.telegram.org/apps",
-            "required": true
-        },
         "BOT_TOKEN": {
             "description": "Get from Telegram's @BotFather",
             "required": true
