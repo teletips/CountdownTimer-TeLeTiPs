@@ -129,7 +129,7 @@ async def set_timer(client, message):
     try:
         if message.chat.id>0:
             return await message.reply('⛔️ Try this command in a **group chat**.')
-        elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
+        elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).privileges:
             return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')    
         elif len(message.command)<3:
             return await message.reply('❌ **Incorrect format.**\n\n✅ Format should be like,\n<code> /set seconds "event"</code>\n\n**Example**:\n <code>/set 10 "10 seconds countdown"</code>')    
@@ -195,7 +195,7 @@ async def set_timer(client, message):
 async def stop_timer(Client, message):
     global stoptimer
     try:
-        if (await bot.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
+        if (await bot.get_chat_member(message.chat.id,message.from_user.id)).privileges:
             stoptimer = True
             await message.reply('🛑 Countdown stopped.')
         else:
