@@ -195,7 +195,7 @@ async def set_timer(client, message):
 async def stop_timer(Client, message):
     global stoptimer
     try:
-        if (await bot.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
+        if (await bot.get_chat_member(message.chat.id,message.from_user.id)).privileges:
             stoptimer = True
             await message.reply('🛑 Countdown stopped.')
         else:
