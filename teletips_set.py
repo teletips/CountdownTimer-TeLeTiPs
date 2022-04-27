@@ -5,7 +5,7 @@
 # Changing the code is not allowed! Read GNU AFFERO GENERAL PUBLIC LICENSE: https://github.com/teletips/CountdownTimer-TeLeTiPs/blob/main/LICENSE
  
 from pyrogram import Client, filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, ChatMember
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, ChatPermissions
 import os
 import asyncio
 from plugins.teletips_t import *
@@ -129,7 +129,7 @@ async def set_timer(client, message):
     try:
         if message.chat.id>0:
             return await message.reply('⛔️ Try this command in a **group chat**.')
-        elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat:
+        elif await client.get_chat_member(message.chat.id,message.from_user.id)).can_manage_chat == False:
             return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')    
         elif len(message.command)<3:
             return await message.reply('❌ **Incorrect format.**\n\n✅ Format should be like,\n<code> /set seconds "event"</code>\n\n**Example**:\n <code>/set 10 "10 seconds countdown"</code>')    
