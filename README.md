@@ -52,7 +52,7 @@ Example:
 - [Thakshaka](https://t.me/thakshakar)
 - [Pyrogram](https://github.com/pyrogram/pyrogram)
 
-## ⚠️ First & Last Warning
+## Warning
 
 - Changing the code is NOT ALLOWED!!    
 - You are free to use this code in any of your projects, but you MUST include the following in your README.md (Copy & paste)
