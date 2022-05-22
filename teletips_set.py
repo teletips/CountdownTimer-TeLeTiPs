@@ -189,7 +189,7 @@ async def set_timer(client, message):
                 await get_user_input_time.edit(f"🤷🏻‍♂️ I can't countdown from {user_input_time}")
                 await get_user_input_time.unpin()
     except FloodWait as e:
-        await asyncio.sleep(e.x)
+        await asyncio.sleep(e.value)
 
 @bot.on_message(filters.command('stopc'))
 async def stop_timer(Client, message):
