@@ -201,7 +201,7 @@ async def stop_timer(Client, message):
         else:
             await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')
     except FloodWait as e:
-        await asyncio.sleep(e.x)
+        await asyncio.sleep(e.value)
 
 print("Countdown Timer is alive!")
 bot.run()
