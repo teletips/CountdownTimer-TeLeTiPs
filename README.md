@@ -58,8 +58,8 @@ Example:
 - You are free to use this code in any of your projects, but you MUST include the following in your README.md (Copy & paste)
 
 ```
-##Credits
+## Credits
 - [Countdown Timer Telegram bot by TeLe TiPs] (https://github.com/teletips/CountdownTimer-TeLeTiPs)
 ```
-## Read GNU AFFERO GENERAL PUBLIC LICENSE: 
+## License: 
 [LICENSE](https://github.com/teletips/CountdownTimer-TeLeTiPs/blob/main/LICENSE)
