@@ -61,5 +61,5 @@ Example:
 ## Credits
 - [Countdown Timer Telegram bot by TeLe TiPs] (https://github.com/teletips/CountdownTimer-TeLeTiPs)
 ```
-## License: 
+## License
 [GNU Affero General Public License v3.0](https://github.com/teletips/CountdownTimer-TeLeTiPs/blob/main/LICENSE)
